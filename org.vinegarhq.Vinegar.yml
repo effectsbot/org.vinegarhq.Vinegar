@@ -80,14 +80,14 @@ modules:
       - ./configure.sh --prefix=/app
       - make install DESTDIR=/app
     sources:
-      - type: git
-        url: https://github.com/Open-Wine-Components/umu-launcher.git
-        commit: 223cd9e2a5f62a9eede6ab6695b2e522fcf78301
-        tag: 1.1.4
+      - type: archive
+        url: https://github.com/Open-Wine-Components/umu-launcher/archive/refs/tags/1.1.4.zip
+        sha256: feba6ae801ae07894f88f72225fe412daa99decb30062b47fbbe93775e7ffeab
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Open-Wine-Components/umu-launcher/releases/latest
-          tag-query: .tag_name
+          version-query: .tag_name
+          url-query: .assets[] | select(.name=="($version).zip") | .browser_download_url
   - name: gamemode
     buildsystem: meson
     config-opts:

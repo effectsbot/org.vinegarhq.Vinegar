@@ -74,13 +74,17 @@ modules:
           url: https://api.github.com/repos/vinegarhq/vinegar/releases/latest
           version-query: .tag_name
           url-query: .assets[] | select(.name=="vinegar-\($version).tar.xz") | .browser_download_url
-  - name: umu
+  - name: umu-run
     buildsystem: simple
-    build-commands: 
-      - ./configure.sh --prefix=/app && make install
+    build-commands:
+      - ./configure.sh --prefix=/app
+      - make install DESTDIR=/app
+      - cp -R /app/app/share/* /app/share/
+      - cp -R /app/usr/* /app/
+      - rm -Rf /app/app/
     sources:
       - type: git
-        url: https://github.com/Open-Wine-Components/umu-launcher
+        url: https://github.com/Open-Wine-Components/umu-launcher.git
         commit: 223cd9e2a5f62a9eede6ab6695b2e522fcf78301
         tag: 1.1.4
         x-checker-data:

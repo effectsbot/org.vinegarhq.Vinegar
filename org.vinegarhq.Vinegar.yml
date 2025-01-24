@@ -74,6 +74,19 @@ modules:
           url: https://api.github.com/repos/vinegarhq/vinegar/releases/latest
           version-query: .tag_name
           url-query: .assets[] | select(.name=="vinegar-\($version).tar.xz") | .browser_download_url
+  - name: umu
+    buildsystem: simple
+    build-commands: 
+      - ./configure.sh --prefix=/app && make install
+    sources:
+      - type: git
+        url: https://github.com/Open-Wine-Components/umu-launcher
+        commit: 223cd9e2a5f62a9eede6ab6695b2e522fcf78301
+        tag: 1.1.4
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/Open-Wine-Components/umu-launcher/releases/latest
+          tag-query: .tag_name
   - name: gamemode
     buildsystem: meson
     config-opts:

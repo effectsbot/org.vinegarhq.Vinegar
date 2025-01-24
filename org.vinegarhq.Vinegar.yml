@@ -79,9 +79,6 @@ modules:
     build-commands:
       - ./configure.sh --prefix=/app
       - make install DESTDIR=/app
-      - cp -R /app/app/share/* /app/share/
-      - cp -R /app/usr/* /app/
-      - rm -Rf /app/app/
     sources:
       - type: git
         url: https://github.com/Open-Wine-Components/umu-launcher.git

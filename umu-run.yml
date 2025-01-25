@@ -221,13 +221,13 @@ modules:
             url: https://files.pythonhosted.org/packages/ce/9e/2d725d2f7729c6e79ca62aeb926492abbc06e25910dd30139d60a68bcb19/build-1.2.1.tar.gz
             sha256: 526263f4870c26f26c433545579475377b2b7588b6f1eac76a001e873ae3e19d
       
-       # --- python-installer ---
-       - name: python-installer
-         buildsystem: simple
-         build-commands:
+      # --- python-installer ---
+      - name: python-installer
+        buildsystem: simple
+        build-commands:
           - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .
-         cleanup: ['*']
-         sources:
+        cleanup: ['*']
+        sources:
           - type: archive
             url: https://files.pythonhosted.org/packages/05/18/ceeb4e3ab3aa54495775775b38ae42b10a92f42ce42dfa44da684289b8c8/installer-0.7.0.tar.gz
             sha256: a26d3e3116289bb08216e0d0f7d925fcef0b0194eedfa0c944bcaaa106c4b631

@@ -265,17 +265,18 @@ modules:
   - name: umu-run
     buildsystem: simple
     build-commands:
-      - ./configure.sh --prefix=/app
-      - make install
+      - |
+        git submodule update --init --recursive
+        ./configure.sh --prefix=/app
+        make FLATPAK=xtrue install DESTDIR=/app
+        cp -R /app/app/share/* /app/share/
+        cp -R /app/usr/* /app/
+        rm -Rf /app/app/
+        pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .
     sources:
-      - type: archive
-        url: https://github.com/Open-Wine-Components/umu-launcher/archive/refs/tags/1.1.4.zip
-        sha256: feba6ae801ae07894f88f72225fe412daa99decb30062b47fbbe93775e7ffeab
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/Open-Wine-Components/umu-launcher/releases/latest
-          version-query: .tag_name
-          url-query: .assets[] | select(.name=="($version).zip") | .browser_download_url
+      - type: git
+        url: https://github.com/Open-Wine-Components/umu-launcher.git
+        tag: 1.1.4
   - name: gamemode
     buildsystem: meson
     config-opts:

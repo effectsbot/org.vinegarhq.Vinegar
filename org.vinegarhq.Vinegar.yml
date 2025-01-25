@@ -61,6 +61,35 @@ modules:
       - type: file
         path: ld.so.conf
 
+### umu-run build dependencies ###
+  - name: python-hatchling
+    buildsystem: simple
+    build-commands:
+      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .
+    cleanup: ['*']
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/a3/51/8a4a67a8174ce59cf49e816e38e9502900aea9b4af672d0127df8e10d3b0/hatchling-1.25.0.tar.gz
+        sha256: 7064631a512610b52250a4d3ff1bd81551d6d1431c4eb7b72e734df6c74f4262
+  - name: python-build
+    buildsystem: simple
+    build-commands:
+      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .
+    cleanup: ['*']
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/ce/9e/2d725d2f7729c6e79ca62aeb926492abbc06e25910dd30139d60a68bcb19/build-1.2.1.tar.gz
+        sha256: 526263f4870c26f26c433545579475377b2b7588b6f1eac76a001e873ae3e19
+  - name: python-installer
+    buildsystem: simple
+    build-commands:
+      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .
+    cleanup: ['*']
+    sources:
+      - type: archive
+        url: https://files.pythonhosted.org/packages/05/18/ceeb4e3ab3aa54495775775b38ae42b10a92f42ce42dfa44da684289b8c8/installer-0.7.0.tar.gz
+        sha256: a26d3e3116289bb08216e0d0f7d925fcef0b0194eedfa0c944bcaaa106c4b631
+
   - name: vinegar
     buildsystem: simple
     build-commands:
@@ -78,7 +107,7 @@ modules:
     buildsystem: simple
     build-commands:
       - ./configure.sh --prefix=/app
-      - make install DESTDIR=/app
+      - make install
     sources:
       - type: archive
         url: https://github.com/Open-Wine-Components/umu-launcher/archive/refs/tags/1.1.4.zip

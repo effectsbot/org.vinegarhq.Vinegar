@@ -89,8 +89,8 @@ modules:
     cleanup: ['*']
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/a3/51/8a4a67a8174ce59cf49e816e38e9502900aea9b4af672d0127df8e10d3b0/hatchling-1.25.0.tar.gz
-        sha256: 7064631a512610b52250a4d3ff1bd81551d6d1431c4eb7b72e734df6c74f4262
+        url: https://files.pythonhosted.org/packages/8f/8a/cc1debe3514da292094f1c3a700e4ca25442489731ef7c0814358816bb03/hatchling-1.27.0.tar.gz
+        sha256: 971c296d9819abb3811112fc52c7a9751c8d381898f36533bb16f9791e941fd6
     modules:
       - name: pathspec
         buildsystem: simple

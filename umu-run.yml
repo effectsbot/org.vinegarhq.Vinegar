@@ -8,7 +8,7 @@ modules:
   - name: python-flit-core  # needed by idna
     buildsystem: simple
     build-commands:
-      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
     cleanup: ['*']
     sources:
       - type: archive
@@ -18,7 +18,7 @@ modules:
     buildsystem: simple
     build-commands:
       - python3 setup.py build -j${FLATPAK_BUILDER_N_JOBS} -DARCHIVE_DOWNLOAD_DIR="${FLATPAK_BUILDER_BUILDDIR}"
-      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
     cleanup: ['*']
     sources:
       - type: archive
@@ -31,7 +31,7 @@ modules:
       - name: python-skbuild
         buildsystem: simple
         build-commands:
-          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
         cleanup: ['*']
         sources:
           - type: archive
@@ -41,7 +41,7 @@ modules:
           - name: python-distro  # also needed by Lutris, do not add a cleanup property here!
             buildsystem: simple
             build-commands:
-              - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+              - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
             cleanup: ['*']
             sources:
               - type: archive
@@ -50,13 +50,13 @@ modules:
           - name: python-setuptools-scm
             buildsystem: simple
             build-commands:
-              - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+              - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
             cleanup: ['*']
             sources:
               - name: python-packaging
                 buildsystem: simple
                 build-commands:
-                  - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+                  - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
                 cleanup: ['*']
                 sources:
                   - type: archive
@@ -69,7 +69,7 @@ modules:
                   - name: python-pyparsing
                     buildsystem: simple
                     build-commands:
-                      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+                      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
                     cleanup: ['*']
                     sources:
                       - type: archive
@@ -78,7 +78,7 @@ modules:
               - name: python-typing-extensions
                 buildsystem: simple
                 build-commands:
-                  - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+                  - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
                 cleanup: ['*']
                 sources:
                   - type: archive
@@ -87,7 +87,7 @@ modules:
               - name: python-tomli
                 buildsystem: simple
                 build-commands:
-                  - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+                  - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
                 cleanup: ['*']
                 sources:
                   - type: archive
@@ -98,7 +98,7 @@ modules:
   - name: python-xlib
     buildsystem: simple
     build-commands:
-      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/source/p/python-xlib/python-xlib-0.33.tar.gz
@@ -108,7 +108,7 @@ modules:
   - name: filelock
     buildsystem: simple
     build-commands:
-      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+      - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
     sources:
       - type: archive
         url: https://files.pythonhosted.org/packages/08/dd/49e06f09b6645156550fb9aee9cc1e59aba7efbc972d665a1bd6ae0435d4/filelock-3.15.4.tar.gz
@@ -118,7 +118,7 @@ modules:
       - name: python-hatchling
         buildsystem: simple
         build-commands:
-          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
         cleanup: ['*']
         sources:
           - type: archive
@@ -129,7 +129,7 @@ modules:
           - name: pathspec
             buildsystem: simple
             build-commands:
-              - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+              - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
             cleanup: ['*']
             sources:
               - type: archive
@@ -140,7 +140,7 @@ modules:
           - name: pluggy
             buildsystem: simple
             build-commands:
-              - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+              - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
             cleanup: ['*']
             sources:
               - type: archive
@@ -151,7 +151,7 @@ modules:
           - name: trove_classifiers
             buildsystem: simple
             build-commands:
-              - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+              - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
             cleanup: ['*']
             sources:
               - type: archive
@@ -162,7 +162,7 @@ modules:
       - name: hatch-vcs
         buildsystem: simple
         build-commands:
-          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
         cleanup: ['*']
         sources:
           - type: archive
@@ -183,7 +183,7 @@ modules:
         cp -R /app/app/share/* /app/share/
         cp -R /app/usr/* /app/
         rm -Rf /app/app/
-        pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+        pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
     sources:
       - type: git
         url: https://github.com/Open-Wine-Components/umu-launcher.git
@@ -193,7 +193,7 @@ modules:
       - name: python-packaging
         buildsystem: simple
         build-commands:
-          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
         cleanup: ['*']
         sources:
           - type: archive
@@ -204,7 +204,7 @@ modules:
       - name: pyproject_hooks
         buildsystem: simple
         build-commands:
-          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
         cleanup: ['*']
         sources:
           - type: archive
@@ -215,7 +215,7 @@ modules:
       - name: python-build
         buildsystem: simple
         build-commands:
-          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
         cleanup: ['*']
         sources:
           - type: archive
@@ -226,7 +226,7 @@ modules:
       - name: python-installer
         buildsystem: simple
         build-commands:
-          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py
+          - pip3 install --no-index --no-build-isolation --prefix="${FLATPAK_DEST}" .py-dir
         cleanup: ['*']
         sources:
           - type: archive

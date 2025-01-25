@@ -99,5 +99,5 @@ modules:
       - install -Dm755 data/gamemoderun -t /app/bin
     sources: *gamemode-sources
   
-  - wine.yml
   - umu-run.yml
+  - wine.yml
